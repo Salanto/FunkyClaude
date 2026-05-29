@@ -12,6 +12,20 @@
         ]
       }
     ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          { "type": "command", "command": "/ABSOLUTE/PATH/TO/FunkyClaude/hooks/funky-state.sh working" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          { "type": "command", "command": "/ABSOLUTE/PATH/TO/FunkyClaude/hooks/funky-state.sh working" }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [

@@ -76,6 +76,8 @@ Options:
 
    The example wires:
    - `UserPromptSubmit` → `working` (you sent a prompt; Claude starts working)
+   - `PreToolUse` / `PostToolUse` → `working` (re-asserts working on every tool
+     call, so the state self-corrects during long tasks)
    - `Stop` / `SubagentStop` → `idle` (Claude finished its turn)
    - `Notification` → `idle` (Claude is waiting for input or permission)
 
