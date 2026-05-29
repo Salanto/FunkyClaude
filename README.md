@@ -87,6 +87,22 @@ Options:
 If you override `FUNKYCLAUDE_STATE_FILE`, set the same value for both the app and
 the hook environment so they agree on the file.
 
+### Windows
+
+`funky-state.sh` is a bash script, so on Windows use the batch equivalent
+`hooks/funky-state.bat` (no Git Bash/WSL required) and the
+`hooks/settings.windows.example.json` config. It writes the same state file,
+defaulting to `%USERPROFILE%\.funkyclaude\state` — the `state` file inside the
+`.funkyclaude` folder, which the app creates on first launch.
+
+Quick check (in `cmd`), with the app running:
+
+```bat
+hooks\funky-state.bat working   :: video should play
+hooks\funky-state.bat idle      :: video should pause
+```
+
+
 ## Project layout
 
 ```
