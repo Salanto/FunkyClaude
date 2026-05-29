@@ -1,0 +1,51 @@
+{
+  "//": "Example Claude Code hooks for FunkyClaude. Merge the contents of the",
+  "//2": "'hooks' block into your ~/.claude/settings.json (or .claude/settings.json",
+  "//3": "in a project). Adjust the absolute path to funky-state.sh to match where",
+  "//4": "you cloned this repo. The script writes ~/.funkyclaude/state, which the app",
+  "//5": "watches to start/stop the video.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "/ABSOLUTE/PATH/TO/FunkyClaude/hooks/funky-state.sh working" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          { "type": "command", "command": "/ABSOLUTE/PATH/TO/FunkyClaude/hooks/funky-state.sh working" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          { "type": "command", "command": "/ABSOLUTE/PATH/TO/FunkyClaude/hooks/funky-state.sh working" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "/ABSOLUTE/PATH/TO/FunkyClaude/hooks/funky-state.sh idle" }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "/ABSOLUTE/PATH/TO/FunkyClaude/hooks/funky-state.sh idle" }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          { "type": "command", "command": "/ABSOLUTE/PATH/TO/FunkyClaude/hooks/funky-state.sh idle" }
+        ]
+      }
+    ]
+  }
+}

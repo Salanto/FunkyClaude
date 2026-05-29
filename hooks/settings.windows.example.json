@@ -1,0 +1,52 @@
+{
+  "//": "Example Claude Code hooks for FunkyClaude on Windows. Merge the 'hooks'",
+  "//2": "block into your %USERPROFILE%\\.claude\\settings.json (or a project",
+  "//3": ".claude\\settings.json). Adjust the absolute path to funky-state.bat to",
+  "//4": "match where you cloned this repo. The script writes",
+  "//5": "%USERPROFILE%\\.funkyclaude\\state, which the app watches to play/pause.",
+  "//6": "Note: paths use doubled backslashes because this is JSON.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "C:\\Users\\sn\\funkyclaude\\hooks\\funky-state.bat working" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          { "type": "command", "command": "C:\\Users\\sn\\funkyclaude\\hooks\\funky-state.bat working" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          { "type": "command", "command": "C:\\Users\\sn\\funkyclaude\\hooks\\funky-state.bat working" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "C:\\Users\\sn\\funkyclaude\\hooks\\funky-state.bat idle" }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "C:\\Users\\sn\\funkyclaude\\hooks\\funky-state.bat idle" }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          { "type": "command", "command": "C:\\Users\\sn\\funkyclaude\\hooks\\funky-state.bat idle" }
+        ]
+      }
+    ]
+  }
+}
