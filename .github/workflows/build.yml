@@ -1,0 +1,50 @@
+name: Build (Windows / MSVC)
+
+on:
+  push:
+    branches: [ master, "claude/**" ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  windows-msvc:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: "6.7.*"
+          host: windows
+          target: desktop
+          arch: win64_msvc2019_64
+          modules: qtmultimedia
+
+      - name: Set up MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Configure
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Deploy Qt runtime
+        run: |
+          windeployqt --qmldir qml --release build\funkyclaude.exe
+
+      - name: Package
+        run: |
+          mkdir dist
+          xcopy /E /I /Y build dist\funkyclaude
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: funkyclaude-windows-msvc
+          path: dist/funkyclaude

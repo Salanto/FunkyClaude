@@ -1,0 +1,14 @@
+# Build output
+/build/
+/dist/
+build-*/
+cmake-build-*/
+
+# Qt / IDE
+*.user
+.qtc_clangd/
+CMakeLists.txt.user*
+
+# OS
+.DS_Store
+Thumbs.db
